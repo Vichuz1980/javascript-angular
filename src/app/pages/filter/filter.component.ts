@@ -47,19 +47,30 @@ export class FilterComponent {
   ordersFilter:any
 
   constructor(){
+
+    /* Carga todos los elementos en el inicio */
+    this.ordersFilter = this.nOrders
+
+    /* Detecta cambios en el input e inicia la funcion filtrar */
     this.searchFilter.valueChanges
     .subscribe(response =>{
 
       if (response != null) {
+
         this.filterItems(response)
+        
       }
+
     })
-    this.ordersFilter = this.nOrders
+
+    
   }
 
   filterItems(search:string){
 
-   this.ordersFilter = this.nOrders.filter((item)=> item.customerName.toLowerCase().includes(search.toLowerCase()))
+   this.ordersFilter = this.nOrders.filter(item=> 
+    item.customerName.toLowerCase().includes(search.toLowerCase())
+   )
 
   }
 
