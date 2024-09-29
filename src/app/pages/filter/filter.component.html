@@ -1,11 +1,27 @@
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-2 mx-auto">
       <div class="flex flex-wrap w-full  flex-col items-center text-center">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Map Inmmutable</h1>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Filter</h1>
         <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">The Map object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value. </p>
       </div>
       <div class="flex flex-wrap px-4 py-4">
-
+        <div class="w-full md:w-1/2">
+ 
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="text"
+                        [formControl]="searchFilter" 
+                        id="simple-search" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                        placeholder="Filter by NameCustomer" required="">
+                </div>
+  
+        </div>
         <!-- Start coding here -->
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -17,28 +33,10 @@
 
                 </tr>
             </thead>
-            <tbody>
 
-                @for (item of orders; track $index) {
-
-                    <tr class="border-b dark:border-gray-700">
-                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{item.customerName}}</th>
-                        <td class="px-4 py-3">{{item.total}}</td>
-                        <td class="px-4 py-3">--</td>
-                        <td class="px-4 py-3">{{item.delivered}}</td>
-                    </tr>
-
-                }
-
-                
-            </tbody>
-
-            <tr class="border-b dark:border-gray-700">
-                <th colspan="4" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white bg-gray-100 text-center"></th>
-            </tr>
             
             <tbody>
-                @for (item of nOrders; track $index) {
+                @for (item of ordersFilter; track $index) {
 
                     <tr class="border-b dark:border-gray-700">
                         <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{item.customerName}}</th>

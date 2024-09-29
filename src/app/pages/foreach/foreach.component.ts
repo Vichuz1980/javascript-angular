@@ -1,11 +1,10 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-foreach',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [RouterLink],
   templateUrl: './foreach.component.html'
 })
 export class ForeachComponent {

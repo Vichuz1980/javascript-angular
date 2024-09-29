@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './map.component.html'
 })
 export class MapComponent {
@@ -36,7 +37,7 @@ export class MapComponent {
 nOrders = this.orders.map(item => {
 
     return {
-      ...item, tax:.19
+      ...item, tax: Math.trunc(item.total * 0.19)
     }
 })
 
