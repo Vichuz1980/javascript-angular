@@ -1,0 +1,55 @@
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 mt-4">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        <!-- Start coding here -->
+        <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">CustomerName</th>
+                            <th scope="col" class="px-4 py-3">Total</th>
+                            <th scope="col" class="px-4 py-3">Delivered</th>
+                            <th scope="col" class="px-4 py-3">Tax</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of orders; track $index) {
+
+                            <tr class="border-b dark:border-gray-700">
+                                <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{item.customerName}}</th>
+                                <td class="px-4 py-3">{{item.total}}</td>
+                                <td class="px-4 py-3">{{item.delivered}}</td>
+                                <td class="px-4 py-3">--</td>
+                            </tr>
+
+                        }
+
+                        
+                    </tbody>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <th colspan="4" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white bg-gray-100 text-center">Divisor</th>
+                    </tr>
+                    
+                    <tbody>
+                        @for (item of nOrders; track $index) {
+
+                            <tr class="border-b dark:border-gray-700">
+                                <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{item.customerName}}</th>
+                                <td class="px-4 py-3">{{item.total}}</td>
+                                <td class="px-4 py-3">{{item.delivered}}</td>
+                                <td class="px-4 py-3">{{item.tax}}</td>
+    
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    </section>
